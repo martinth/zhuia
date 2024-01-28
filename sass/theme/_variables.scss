@@ -1,12 +1,18 @@
 // Spectre Overrides
-$primary-color: #3085EE !default;
-$dark-color: #454d5d !default;
+$deutz-green: #23724c;
+$deutz-red: #822824;
+
+$primary-color: $deutz-green !default;
+$dark-color: $deutz-green !default;
 $light-color: rgb(248, 248, 248) !default;
 $gray-color: lighten($dark-color, 40%) !default;
 $gray-color-dark: darken($gray-color, 25%) !default;
 $border-color: lighten($dark-color, 60%) !default;
 $bg-color: lighten($dark-color, 66%) !default;
 $body-font-color: lighten($dark-color, 5%) !default;
+$text-color: #454d5d;
+$sidebar-avatar-background: $gray-color;
+
 
 // Layout
 $horiz-padding: 1rem;

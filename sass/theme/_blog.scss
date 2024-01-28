@@ -1,3 +1,5 @@
+$border-radius: 0.5rem;
+
 #body-wrapper {
   margin-top: 1rem;
 }
@@ -133,7 +135,7 @@ ul.pagination {
 }
 
 .sidebar-widget {
-  border-radius: 1rem;
+  border-radius: $border-radius;
   padding: 1rem;
   margin-bottom: 1rem;
   background-color: white;
@@ -141,7 +143,7 @@ ul.pagination {
 
 /** Cards **/
 .card {
-  border-radius: 1rem;
+  border-radius: $border-radius;
   margin-bottom: 2rem;
 
   .post-title a {
@@ -157,11 +159,11 @@ ul.pagination {
 /** Pagination */
 .pagination {
   padding: 1rem;
-  border-radius: 1rem;
+  border-radius: $border-radius;
 }
 
 .paginator {
-  background: linear-gradient(225deg,#3085EE 0%,#1167D0 65%,#001D4A 100%);
+  background: linear-gradient(225deg,darken($deutz-green, 10%) 0%,darken($deutz-green, 0%) 100%);
 
   & .page-item a {
     color: white;

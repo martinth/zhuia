@@ -54,6 +54,8 @@
         {{ head::katex() }}
       {% endif %}
     {%- endblock math -%}
+
+    {% set index_page = get_page(path="index_page.md") %}
   </head>
   <body id="top" class="sticky-footer">
     {%- if config.extra.grid_size -%}
@@ -77,6 +79,8 @@
             <div class="columns">
               <div id="item" class="column col-8 col-md-12 extra-spacing">
                 {%- block content -%}
+                {{ posts::card(page=index_page, full=true) }}
+
                 <div class="blog-listing">
                   {{ lists::list_pages(pages=paginator.pages) }}
                 </div>
@@ -90,9 +94,9 @@
                   avatar=config.extra.sidebar.author_avatar
                   ) }}
                   {% endif %}{# ./if author_bio #}
-                  {% if config.extra.sidebar.text_snippet -%}
-                    {{ sidebar::text_snippet(content=config.extra.sidebar.text_snippet) }}
-                  {% endif -%}
+                  {% set content_page = get_page(path="sidebar_content.md") %}
+                  {{ sidebar::text_snippet(content=content_page.content) }}
+
                   {% if config.extra.sidebar.tweets_by -%}
                     {{ sidebar::tweets_by(id=config.extra.sidebar.tweets_by) }}
                   {% endif -%}
@@ -121,7 +125,6 @@
       </section>
 
       {%- block postcontent -%}
-      {{ pagination::paginate(grid_size=grid_size) }}
       {%- endblock postcontent -%}
     </div><!-- ./page-wrapper -->
 

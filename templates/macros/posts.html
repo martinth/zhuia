@@ -2,7 +2,7 @@
     <div class="post-meta">
         <span class="post-date">
             {%- if section.extra["date"] -%}
-                {{ section.extra["date"] | date(format="%Y.%m.%d") }}
+                {{ section.extra["date"] | date(format="%m.%d.%Y") }}
                 {# end of section.date if-check #}
             {%- endif -%}
         </span>
@@ -20,12 +20,12 @@
         <span class="blog-date" style="display: inline-flex;">
           <i class="gg-calendar" style="margin-right: 5px;"></i>
           {%- if page.updated -%}
-          <time datetime="{{ page.updated | date(format="%Y.%m.%d") }}">
-          [Updated: {{ page.updated | date(format="%Y.%m.%d") }}]
+          <time datetime="{{ page.updated | date(format="%m.%d.%Y") }}">
+          [Updated: {{ page.updated | date(format="%m.%d.%Y") }}]
           </time>
           {%- else -%}
-          <time datetime="{{ page.date | date(format="%Y.%m.%d") }}">
-          {{ page.date | date(format="%Y.%m.%d") }}
+          <time datetime="{{ page.date | date(format="%m.%d.%Y") }}">
+          {{ page.date | date(format="%m.%d.%Y") }}
           </time>
           {%- endif -%}
         </span>
@@ -165,7 +165,9 @@
         {%- if full -%}
         <div>
           <h1 class="post-title">{{ page.title }}</h1>
+          {%- if not page.extra.unlisted -%}
           {{ posts::meta(page=page, author=config.extra.show_author) }}
+          {%- endif -%}
         </div>
         {%- else -%}
         <h5 class="post-title"><a href="{{ page.permalink }}">{{ page.title }}</a></h5>

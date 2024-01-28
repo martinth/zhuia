@@ -30,18 +30,19 @@
 {% endmacro items %}
 
 {% macro home() %}
+{%- set logo_image = resize_image(path=config.extra.logo_image, height=45, op='fit_height') -%}
 <a class="site-logo" href="{{ config.base_url }}">
   {% if config.extra.logo_image %}
   <div class="col-mx-auto">
     <figure style="margin: 8px">
       <img class="img-responsive"
-           style="max-height: 45px"
+           style="max-height: {{ logo_image.height }}px"
            alt="frontmatter image"
-           src="{{ get_url(path=config.extra.logo_image) }}">
+           src="{{ logo_image.url }}">
     </figure>
   </div>
   {% else %}
-  <span>{{ config.title | default(value="zhuia") }}</span>
+  <span>{{ config.title | default(value="Home") }}</span>
   {% endif %}
 </a>
 {% endmacro home %}
